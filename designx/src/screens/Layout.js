@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Search, ShoppingCart, Twitter, User } from 'react-feather';
-import CartDrawer from '../components/CartDrawer';
-import axios from 'axios';
+// import CartDrawer from '../components/CartDrawer';
+// import axios from 'axios';
 
 const Layout = () => {
   const [isCartOpen, setCartOpen] = useState(false);
@@ -13,7 +13,7 @@ const Layout = () => {
   const navigate = useNavigate();
 
   const handleCartToggle = () => {
-    setCartOpen(!isCartOpen);
+    // setCartOpen(!isCartOpen);
   };
 
   const handleHome = () => {
@@ -25,28 +25,28 @@ const Layout = () => {
   };
 
   const handleSearchToggle = () => {
-    setSearchVisible(!isSearchVisible);
+    // setSearchVisible(!isSearchVisible);
   };
 
   const handleSearchInputChange = (event) => {
-    setSearchTerm(event.target.value);
+    // setSearchTerm(event.target.value);
   };
 
   const handleSearchSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
-    // Make the API call here using the searchTerm
-    try {
-      axios.get(`http://localhost:4000/api/products/search?q=${searchTerm}`).then((response) => {
-        console.log(response.data);
+    // // Make the API call here using the searchTerm
+    // try {
+    //   axios.get(`http://localhost:4000/api/products/search?q=${searchTerm}`).then((response) => {
+    //     console.log(response.data);
 
-        // Redirect to the result page with the search term
-        navigate(`/result/${searchTerm}`);
-      });
-    } catch (error) {
-      console.error('Error searching products:', error);
-      // Handle error scenarios
-    }
+    //     // Redirect to the result page with the search term
+    //     navigate(`/result/${searchTerm}`);
+    //   });
+    // } catch (error) {
+    //   console.error('Error searching products:', error);
+    //   // Handle error scenarios
+    // }
   };
 
   return (
@@ -82,7 +82,7 @@ const Layout = () => {
         </div>
       </nav>
 
-      <CartDrawer isOpen={isCartOpen} onClose={handleCartToggle} />
+      {/* <CartDrawer isOpen={isCartOpen} onClose={handleCartToggle} /> */}
 
       <Outlet />
 
