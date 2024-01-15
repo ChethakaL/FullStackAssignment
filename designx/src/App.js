@@ -35,10 +35,30 @@ function App() {
     <BrowserRouter>
     <CartProvider>
       <Routes>
+        <Route path="/customer-login" element={<CustomerLogin />}/>
+        <Route path="/customer-register" element={<Register />}/>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
           <Route path="shop" element={<Shop />} />
+          <Route path="result/:searchTerm" element={<Result />} />
+          <Route path="category-shop/:category" element={<CategoryShop />} />
+          <Route path="product/:id" element={<Product />} />
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="payment" element={<PaymentScreen />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+        <Route path="/paypal" element={<PaypalButton />}/>
+        <Route path="/login" element={<Login />}/>
+        
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="add-product" element={<AddProduct />} />
+          <Route path="update-product" element={<UpdateProduct />} />
+          <Route path='manage' element={<ManageOrders/>}/>
+          <Route path='review' element={<ReviewTable/>}/>
+          <Route path='purchase' element={<PurchaseTable/>}/>
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </CartProvider>
